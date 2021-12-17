@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>217</x>
+      <y>56</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>::CheckersClient
+--
+-frame: JFrame
+--
++CheckersClient()
++main(args: String[]): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>434</x>
+      <y>56</y>
+      <w>182</w>
+      <h>217</h>
+    </coordinates>
+    <panel_attributes>::CheckersPanel
+--
+-n: int
+-star: Star
+-circles: Map&lt;Integer,
+Map&lt;Integer, Circle&gt; &gt;
+-checkedCircle: Circle
+-circleTree: CircleTree
+--
+-CheckersPanel()
++getCircles(): Circle
++getN(): int
++getInstance(): CheckersPanel
++createStar(): void
++createCircles(): void
++paintComponent(g: Graphics): void
++onPress(x: double, y: double): void
++checkCircles(x: int, y: int): void
++recCheckCircles(circleTree: CircleTree,
+x: int, y: int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>686</x>
+      <y>56</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>::Star
+--
+-color: Color
+--
++Star()
++getColor(): Color</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>245</x>
+      <y>238</y>
+      <w>168</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>::Circle
+--
+-color: Color
+-isChecked: boolean
+-biggerCircle: Ellipse2D.Double
+--
++Circle(x: double, y: double,
+r: double)
++getColor(): Color
++setColor(color: Color): void
++isHit(x: double, y: double): boolean
++changeStatus(): void
++drawCircle(g2d: Graphics2D): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>238</y>
+      <w>203</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>::CircleTree
+--
+-circle: Circle
+-parent: CircleTree
+-children: List&lt;CircleTree&gt;
+--
++CircleTree(circle: Circle, parent: CircleTree)
++changeChildrenColor(): void
++findCircleTree(circle: Circle): CircleTree
++add(circleTree: CircleTree)
++showPath(circle: Circle, panel: JPanel): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>357</x>
+      <y>98</y>
+      <w>91</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>609</x>
+      <y>98</y>
+      <w>91</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>182</y>
+      <w>112</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;80.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>609</x>
+      <y>196</y>
+      <w>84</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>100.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>798</x>
+      <y>196</y>
+      <w>84</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>50.0;100.0;100.0;100.0;100.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+</diagram>
