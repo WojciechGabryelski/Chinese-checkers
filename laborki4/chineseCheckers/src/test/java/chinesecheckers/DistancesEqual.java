@@ -3,33 +3,26 @@ package chinesecheckers;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
-import javax.swing.JFrame;
 
 import org.junit.Test;
 
-import chinesecheckers.frontend.CheckersPanel;
-import chinesecheckers.frontend.Circle;
+import chinesecheckers.client.CheckersClient;
+import chinesecheckers.client.Circle;
 
 /**
- * @author DELL
- *
+ * OnPressTest class contains class which tests whether the adjacent circles are equidistant from each other.
  */
 public class DistancesEqual{
 
     /**
-     * 
+     * Tests whether adjacent circles are equidistant from each other.
      */
     @Test
-    public void shouldAnswerWithTrue() {
-        JFrame frame = new JFrame();
-        frame.setSize(1080, 720);
-        CheckersPanel panel = CheckersPanel.getInstance();
-        frame.add(panel);
-        frame.setVisible(true);
-        panel.createCircles();
-        frame.setVisible(false);
-        Map<Integer, Map<Integer, Circle>> circles = panel.getCircles();
-        int n = CheckersPanel.getN();
+    public void shouldAnswerWithTrue() throws Exception{
+        CheckersClient client = new CheckersClient("localhost");
+        client.getFrame().setVisible(false);
+        Map<Integer, Map<Integer, Circle>> circles = client.getCircles();
+        int n = client.getN();
         Circle circle1 = circles.get(0).get(0);
         Circle circle2 = circles.get(1).get(0);
         double dist = Math.pow(circle1.getX() - circle2.getX(), 2.0) + Math.pow(circle1.getY() - circle2.getY(), 2.0);
